@@ -1,0 +1,47 @@
+﻿@model IEnumerable<SeaSharpProject.Models.SeaEntity>
+
+@{
+    ViewData["Title"] = "Index";
+    
+}
+
+<h1>~~~THE SEA!~~~</h1>
+<style>
+    h1 {
+        background-image: url('https://static.tumblr.com/2e4d8d5ed397edc6d65f6d31c6126a70/2dh3nxs/UT4q5mfba/tumblr_static_4ufc2d0vygisgksgw8ows4kcw.gif');
+    }
+</style>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+      
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
